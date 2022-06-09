@@ -1,0 +1,18 @@
+@import '../../scss/colors';
+@import '../../scss/mixins';
+
+.header {
+  padding: 20px 0;
+
+  & .container {
+    @include container();
+    display: flex;
+    align-items: center;
+  }
+
+  &__title {
+    margin: 0 auto;
+    @include text(38px, 900, 100%, uppercase, none, $black);
+  }
+
+}
