@@ -6,7 +6,11 @@ interface IFooter {}
 const Footer:FC<IFooter> = () => {
     return (
         <footer className={styles['footer']}>
-            Footer
+            <div className={styles['container']}>
+                <p className={styles['footer__rights']}>
+                    All rights reserved
+                </p>
+            </div>
         </footer>
     );
 };

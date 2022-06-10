@@ -4,7 +4,6 @@ import { Routes, Route } from 'react-router-dom';
 import { UsersPage, ManagePage } from './pages';
 import { Header, Footer } from './components';
 
-
 export const App = () => {
     return (
         <div className={styles['application']}>

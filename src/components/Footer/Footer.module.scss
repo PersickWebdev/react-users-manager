@@ -1,0 +1,18 @@
+@import '../../scss/colors';
+@import '../../scss/mixins';
+@import '../../scss/variables';
+
+.footer {
+  padding: 20px 0;
+  background-color: $black;
+
+  & .container {
+    @include container
+  }
+
+  &__rights {
+    text-align: center;
+    @include text(16px, 600, 100%, uppercase, none, $white);
+    letter-spacing: 10px;
+  }
+}
