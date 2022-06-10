@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import styles from './Header.module.scss';
+import { Navigation } from '../../components';
 
 interface IHeader {}
 
@@ -11,6 +12,7 @@ const Header:FC<IHeader> = () => {
                     Users manager
                 </p>
             </div>
+            <Navigation/>
         </header>
     );
 };

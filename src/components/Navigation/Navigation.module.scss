@@ -1,0 +1,24 @@
+@import '../../scss/colors';
+@import '../../scss/mixins';
+@import '../../scss/variables';
+
+.navigation {
+  padding: 15px 0;
+  margin-top: 15px;
+  background-color: $black;
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+  }
+
+  &__list-item:not(:last-child) {
+    margin-right: 20px;
+  }
+
+  &__list-item a {
+    @include link('primary');
+  }
+}

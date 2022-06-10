@@ -1,3 +1,6 @@
+@import './colors';
+@import './variables';
+
 @mixin container () {
   max-width: 1024px;
   margin: 0 auto;
@@ -11,4 +14,36 @@
   text-transform: $transform;
   text-decoration: $decoration;
   color: $color;
+}
+
+@mixin link($preset) {
+  padding: 8px 16px;
+  display: block;
+  text-align: center;
+  border-radius: 5px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: $transition;
+
+  @if $preset == 'primary' {
+    border: 1px solid $white;
+    color: $white;
+    background-color: $black;
+
+    &:hover {
+      border: 1px solid $black;
+      color: $black;
+      background-color: $white;
+    }
+  } @else if $preset == 'secondary' {
+    border: 1px solid $black;
+    color: $black;
+    background-color: $white;
+
+    &:hover {
+      border: 1px solid $white;
+      color: $white;
+      background-color: $black;
+    }
+  }
 }
