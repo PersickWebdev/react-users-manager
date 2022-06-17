@@ -49,9 +49,315 @@
       "company": {
         "name": "JC Medical",
         "country": "Australia",
-        "industry": "Health",
+        "industry": "Health Care",
         "rating": 98,
         "email": "jcmedical@gmail.com"
+      }
+    },
+    {
+      "id": 4,
+      "status": "free",
+      "personal": {
+        "name": "Mark",
+        "lastName": "Rice",
+        "age": 54,
+        "gender": "male",
+        "phone": "+43222333445"
+      },
+      "company": {
+        "name": "MR Optics",
+        "country": "Austria",
+        "industry": "Science",
+        "rating": 67,
+        "email": "mroptics@gmail.com"
+      }
+    },
+    {
+      "id": 5,
+      "status": "premium",
+      "personal": {
+        "name": "Monica",
+        "lastName": "Stein",
+        "age": 25,
+        "gender": "female",
+        "phone": "+49222333445"
+      },
+      "company": {
+        "name": "MS Mine",
+        "country": "Germany",
+        "industry": "Mining",
+        "rating": 74,
+        "email": "msmine@gmail.com"
+      }
+    },
+    {
+      "id": 6,
+      "status": "free",
+      "personal": {
+        "name": "Jessica",
+        "lastName": "Lee",
+        "age": 30,
+        "gender": "female",
+        "phone": "+41222333445"
+      },
+      "company": {
+        "name": "Lee Tech",
+        "country": "Switzerland",
+        "industry": "IT",
+        "rating": 59,
+        "email": "leetech@gmail.com"
+      }
+    },
+    {
+      "id": 7,
+      "status": "premium",
+      "personal": {
+        "name": "Harry",
+        "lastName": "Salvator",
+        "age": 41,
+        "gender": "male",
+        "phone": "+39222333445"
+      },
+      "company": {
+        "name": "Sal Generators",
+        "country": "Italy",
+        "industry": "Energy",
+        "rating": 87,
+        "email": "lsalgen@gmail.com"
+      }
+    },
+    {
+      "id": 8,
+      "status": "free",
+      "personal": {
+        "name": "Martha",
+        "lastName": "Miles",
+        "age": 27,
+        "gender": "female",
+        "phone": "+371222333445"
+      },
+      "company": {
+        "name": "Miles M",
+        "country": "Latvia",
+        "industry": "Entertainment",
+        "rating": 46,
+        "email": "milesm@gmail.com"
+      }
+    },
+    {
+      "id": 9,
+      "status": "premium",
+      "personal": {
+        "name": "Greg",
+        "lastName": "Mires",
+        "age": 34,
+        "gender": "male",
+        "phone": "+64222333445"
+      },
+      "company": {
+        "name": "Greg Constructions",
+        "country": "New Zealand",
+        "industry": "Construction",
+        "rating": 88,
+        "email": "gregconst@gmail.com"
+      }
+    },
+    {
+      "id": 10,
+      "status": "free",
+      "personal": {
+        "name": "Angel",
+        "lastName": "Dines",
+        "age": 29,
+        "gender": "female",
+        "phone": "+46222333445"
+      },
+      "company": {
+        "name": "Dines Trucks Inc.",
+        "country": "Sweden",
+        "industry": "Logistics",
+        "rating": 78,
+        "email": "adtrucks@gmail.com"
+      }
+    },
+    {
+      "id": 11,
+      "status": "premium",
+      "personal": {
+        "name": "Bill",
+        "lastName": "Summers",
+        "age": 33,
+        "gender": "male",
+        "phone": "+1222333445"
+      },
+      "company": {
+        "name": "Summers Inc.",
+        "country": "USA",
+        "industry": "Manufacturing",
+        "rating": 92,
+        "email": "summersinc@gmail.com"
+      }
+    },
+    {
+      "id": 12,
+      "status": "free",
+      "personal": {
+        "name": "Sally",
+        "lastName": "Night",
+        "age": 42,
+        "gender": "female",
+        "phone": "+44222333445"
+      },
+      "company": {
+        "name": "SN Care",
+        "country": "Great Britain",
+        "industry": "Health Care",
+        "rating": 65,
+        "email": "nightcare@gmail.com"
+      }
+    },
+    {
+      "id": 13,
+      "status": "premium",
+      "personal": {
+        "name": "Gilbert",
+        "lastName": "Hauser",
+        "age": 38,
+        "gender": "male",
+        "phone": "+61222333445"
+      },
+      "company": {
+        "name": "GHauser Instruments",
+        "country": "Australia",
+        "industry": "Mining",
+        "rating": 79,
+        "email": "ghinstruments@gmail.com"
+      }
+    },
+    {
+      "id": 14,
+      "status": "free",
+      "personal": {
+        "name": "Sarah",
+        "lastName": "Bloom",
+        "age": 36,
+        "gender": "female",
+        "phone": "+43222333445"
+      },
+      "company": {
+        "name": "Bloom Techs",
+        "country": "Austria",
+        "industry": "Technologies",
+        "rating": 69,
+        "email": "bloomtechs@gmail.com"
+      }
+    },
+    {
+      "id": 15,
+      "status": "premium",
+      "personal": {
+        "name": "Mike",
+        "lastName": "Gross",
+        "age": 53,
+        "gender": "male",
+        "phone": "+49222333445"
+      },
+      "company": {
+        "name": "Gross Lazers",
+        "country": "Germany",
+        "industry": "Science",
+        "rating": 93,
+        "email": "grosslazers@gmail.com"
+      }
+    },
+    {
+      "id": 16,
+      "status": "free",
+      "personal": {
+        "name": "Molly",
+        "lastName": "Davidson",
+        "age": 27,
+        "gender": "female",
+        "phone": "+41222333445"
+      },
+      "company": {
+        "name": "MD Group",
+        "country": "Switzerland",
+        "industry": "IT",
+        "rating": 91,
+        "email": "mditgroup@gmail.com"
+      }
+    },
+    {
+      "id": 17,
+      "status": "premium",
+      "personal": {
+        "name": "Carlo",
+        "lastName": "Huerta",
+        "age": 42,
+        "gender": "male",
+        "phone": "+39222333445"
+      },
+      "company": {
+        "name": "Huerta Cables",
+        "country": "Italy",
+        "industry": "Energy",
+        "rating": 79,
+        "email": "huertacables@gmail.com"
+      }
+    },
+    {
+      "id": 18,
+      "status": "free",
+      "personal": {
+        "name": "Marry",
+        "lastName": "Berta",
+        "age": 45,
+        "gender": "female",
+        "phone": "+371222333445"
+      },
+      "company": {
+        "name": "Berta Way",
+        "country": "Latvia",
+        "industry": "Logistics",
+        "rating": 85,
+        "email": "bertalog@gmail.com"
+      }
+    },
+    {
+      "id": 19,
+      "status": "premium",
+      "personal": {
+        "name": "Heli",
+        "lastName": "o'Hara",
+        "age": 33,
+        "gender": "female",
+        "phone": "+64222333445"
+      },
+      "company": {
+        "name": "Hara Nails",
+        "country": "New Zealand",
+        "industry": "Construction",
+        "rating": 82,
+        "email": "haranails@gmail.com"
+      }
+    },
+    {
+      "id": 20,
+      "status": "free",
+      "personal": {
+        "name": "David",
+        "lastName": "Brooks",
+        "age": 30,
+        "gender": "male",
+        "phone": "+46222333445"
+      },
+      "company": {
+        "name": "DBrooks Inc.",
+        "country": "Sweden",
+        "industry": "Entertainment",
+        "rating": 77,
+        "email": "dbrooksinc@gmail.com"
       }
     }
   ]
