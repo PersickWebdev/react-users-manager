@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './ManagePage.module.scss';
+import '../../index.scss';
 
 interface IManagePage {}
 

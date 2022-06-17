@@ -3,6 +3,8 @@
 @import '../../scss/mixins';
 
 .manage-page {
+  //position: absolute;
+
   & .container {
     @include container();
   }

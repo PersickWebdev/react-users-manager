@@ -1,0 +1,58 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "status": "premium",
+      "personal": {
+        "name": "Amy",
+        "lastName": "Watson",
+        "age": 35,
+        "gender": "female",
+        "phone": "+1222333445"
+      },
+      "company": {
+        "name": "Watson Watches",
+        "country": "USA",
+        "industry": "Manufacturing",
+        "rating": 95,
+        "email": "watsonwatches@gmail.com"
+      }
+    },
+    {
+      "id": 2,
+      "status": "free",
+      "personal": {
+        "name": "Jack",
+        "lastName": "Mall",
+        "age": 40,
+        "gender": "male",
+        "phone": "+44222333445"
+      },
+      "company": {
+        "name": "Mall Tech",
+        "country": "Great Britain",
+        "industry": "Technologies",
+        "rating": 80,
+        "email": "malltech@gmail.com"
+      }
+    },
+    {
+      "id": 3,
+      "status": "premium",
+      "personal": {
+        "name": "Jane",
+        "lastName": "Clarkson",
+        "age": 27,
+        "gender": "female",
+        "phone": "+61222333445"
+      },
+      "company": {
+        "name": "JC Medical",
+        "country": "Australia",
+        "industry": "Health",
+        "rating": 98,
+        "email": "jcmedical@gmail.com"
+      }
+    }
+  ]
+}

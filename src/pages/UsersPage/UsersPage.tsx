@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './UsersPage.module.scss';
+import '../../index.scss';
 
 interface IUsersPage {}
 

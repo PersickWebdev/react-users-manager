@@ -3,6 +3,8 @@
 @import '../../scss/mixins';
 
 .users-page {
+  //position: absolute;
+
   & .container {
     @include container();
   }

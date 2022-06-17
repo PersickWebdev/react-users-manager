@@ -73,3 +73,8 @@
 ```
 - icons
 ```
+## FEATURES
+```
+- pushing Footer to the bottom (Grid)
+- smooth pages switch (react-transition-group)
+```
