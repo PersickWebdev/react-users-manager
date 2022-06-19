@@ -1,34 +1,85 @@
 import { usersTypes } from '../actionTypes';
+import { IUser } from '../../types';
 
-export const usersActions = {
+export interface IActionGetAllUsers {
+    type: typeof usersTypes.getAll,
+    payload: IUser[],
+}
+
+export interface IActionGetOneUser {
+    type: typeof usersTypes.getOne,
+    payload: IUser,
+}
+
+export interface IActionAddUser {
+    type: typeof usersTypes.add,
+    payload: IUser,
+}
+
+export interface IActionEditUser {
+    type: typeof usersTypes.edit,
+    payload: IUser,
+}
+
+export interface IActionRemoveUser {
+    type: typeof usersTypes.remove,
+    payload: number | string,
+}
+
+export type UsersActionTypes = IActionGetAllUsers | IActionGetOneUser | IActionAddUser | IActionEditUser | IActionRemoveUser;
+
+export interface IUsersActions {
     getAll: (usersArray: []) => {
+        type: typeof usersTypes.getAll,
+        payload: IUser[]
+    },
+    getOne: (userObject: IUser) => {
+        type: typeof usersTypes.getOne,
+        payload: IUser,
+    },
+    add: (userObject: IUser) => {
+        type: typeof usersTypes.add,
+        payload: IUser,
+    },
+    edit: (userObject: IUser) => {
+        type: typeof usersTypes.edit,
+        payload:  IUser,
+    },
+    remove: (userId: number | string) => {
+        type: typeof usersTypes.remove,
+        payload: number | string,
+    }
+}
+
+export const usersActions: IUsersActions = {
+    getAll: (usersArray: IUser[]): IActionGetAllUsers => {
         return {
             type: usersTypes.getAll,
             payload: usersArray,
         }
     },
-    getOne: (userObject: {}) => {
+    getOne: (userObject: IUser): IActionGetOneUser => {
         return {
             type: usersTypes.getOne,
             payload: userObject,
         }
     },
-    add: (userId: number | string) => {
+    add: (userObject: IUser): IActionAddUser => {
         return {
             type: usersTypes.add,
-            payload: userId,
+            payload: userObject,
         }
     },
-    edit: (userId: number | string) => {
+    edit: (userObject: IUser): IActionEditUser => {
         return {
             type: usersTypes.edit,
-            payload: userId,
+            payload: userObject,
         }
     },
-    remove: (userId: number | string) => {
+    remove: (id: number | string): IActionRemoveUser => {
         return {
             type: usersTypes.remove,
-            payload: userId,
+            payload: id,
         }
     },
 }
