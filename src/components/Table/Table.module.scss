@@ -1,0 +1,106 @@
+@import '../../scss/variables';
+@import '../../scss/colors';
+@import '../../scss/mixins';
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 50px;
+
+  &__heading-row {
+    display: flex;
+    justify-content: space-between;
+    background-color: $black;
+  }
+
+  &__heading-cell {
+    padding: 8px 0;
+    text-align: center;
+    @include text(14px, 400, 100%, uppercase, none, $white);
+  }
+
+  &__heading-cell.name {
+    width: 100px;
+    padding-left: 10px;
+    text-align: left;
+  }
+
+  &__heading-cell.company {
+    width: 230px;
+    text-align: center;
+  }
+
+  &__heading-cell.country {
+    width: 150px;
+    text-align: center;
+  }
+
+  &__heading-cell.industry {
+    width: 100px;
+    text-align: center;
+  }
+
+  &__heading-cell.email {
+    width: 250px;
+    text-align: center;
+  }
+
+  &__heading-cell.status {
+    width: 80px;
+    text-align: center;
+  }
+
+  &__heading-cell.rating {
+    width: 50px;
+    padding-right: 10px;
+    text-align: right;
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid $black;
+  }
+
+  &__cell {
+    padding: 8px 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  &__cell.user-name {
+    width: 110px;
+    text-align: left;
+  }
+
+  &__cell.company-name {
+    width: 230px;
+    text-align: center;
+  }
+
+  &__cell.country {
+    width: 150px;
+    text-align: center;
+  }
+
+  &__cell.industry {
+    width: 100px;
+    text-align: center;
+  }
+
+  &__cell.email {
+    width: 250px;
+    text-align: center;
+  }
+
+  &__cell.status {
+    width: 80px;
+    text-align: center;
+  }
+
+  &__cell.rating {
+    width: 60px;
+    text-align: right;
+  }
+}

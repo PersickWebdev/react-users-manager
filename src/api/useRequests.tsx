@@ -8,13 +8,13 @@ export const useRequests = () => {
         return axios.get(Endpoints.users);
     };
 
-    // To get all users and send them to store:
+    // To get all users and dispatch them to store:
     const getAllUsersThunk = () => async (dispatch: any) => {
         const response = await axios.get(Endpoints.users);
         dispatch(usersActions.getAll(response.data));
     };
 
-    // To get, add, edit or remove one user:
+    // To get, add, edit and remove one user:
     const manageUserRequest = (userId: number | string) => {
         return axios.get(Endpoints.user(userId));
     };
