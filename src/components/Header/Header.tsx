@@ -1,10 +1,14 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import styles from './Header.module.scss';
 import { Navigation } from '../../components';
 
 interface IHeader {}
 
 const Header:FC<IHeader> = () => {
+    const [ activePageId, setActivePageId ] = useState<number>(0);
+
+    console.log('Header - activePageId: ', activePageId);
+
     return (
         <header className={styles['header']}>
             <div className={styles['container']}>
@@ -12,7 +16,10 @@ const Header:FC<IHeader> = () => {
                     Users manager
                 </p>
             </div>
-            <Navigation/>
+            <Navigation
+                activePageId={activePageId}
+                setActivePageId={setActivePageId}
+            />
         </header>
     );
 };

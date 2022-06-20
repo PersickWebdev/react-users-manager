@@ -18,7 +18,11 @@
     margin-right: 20px;
   }
 
-  &__list-item a {
+  &__link {
     @include link('primary');
+  }
+
+  &__link.is-active {
+    @include link('isActive');
   }
 }

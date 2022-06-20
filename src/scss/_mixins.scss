@@ -24,6 +24,7 @@
   text-decoration: none;
   text-transform: uppercase;
   transition: $transition;
+  position: relative;
 
   @if $preset == 'primary' {
     border: 1px solid $white;
@@ -45,5 +46,9 @@
       color: $white;
       background-color: $black;
     }
+  } @else if $preset == 'isActive' {
+    border: 1px solid $black;
+    color: $black;
+    background-color: $white;
   }
 }

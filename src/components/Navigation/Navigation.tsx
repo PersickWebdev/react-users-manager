@@ -3,9 +3,12 @@ import styles from './Navigation.module.scss';
 import { NavigationData, INavigationItem } from './NavigationData';
 import { NavigationItem } from './NavigationItem';
 
-interface INavigation {}
+interface INavigation {
+    activePageId: number;
+    setActivePageId: (state: number) => void;
+}
 
-const Navigation = ({ }: INavigation) => {
+const Navigation = ({ activePageId, setActivePageId }: INavigation) => {
 
     const navigationElements = NavigationData.map((item: INavigationItem) => {
         return (
@@ -14,9 +17,13 @@ const Navigation = ({ }: INavigation) => {
                 id={item.id}
                 label={item.label}
                 path={item.path}
+                setActivePageId={setActivePageId}
+                isActive={activePageId === item.id}
             />
         )
     });
+
+    console.log('Navigation')
 
     return (
         <nav className={styles['navigation']}>

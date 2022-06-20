@@ -1,5 +1,5 @@
 export interface INavigationItem {
-    id: number | string,
+    id: number,
     label: string,
     path: string,
 }
