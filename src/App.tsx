@@ -1,13 +1,24 @@
-import React from 'react';
-import styles from './App.module.scss';
-import './index.scss';
+import React, { useEffect } from 'react';
+
 import { SwitchTransition, CSSTransition } from 'react-transition-group';
 import { Routes, Route, useLocation } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { UsersPage, ManagePage } from './pages';
 import { Header, Footer } from './components';
+import { useRequests } from './api';
+
+import styles from './App.module.scss';
+import './index.scss';
 
 export const App = () => {
     const location = useLocation();
+    const dispatch = useDispatch();
+    const { getAllUsersThunk } = useRequests();
+
+    useEffect(() => {
+        // @ts-ignore
+        dispatch(getAllUsersThunk());
+    }, []);
 
     return (
         <div className={styles['application']}>
