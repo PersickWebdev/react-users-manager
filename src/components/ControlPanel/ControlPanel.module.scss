@@ -4,4 +4,32 @@
 
 .control-panel {
   margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__icon-box {
+    width: 27px;
+    height: 27.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid $black;
+    border-radius: 5px;
+    transition: $transition;
+    cursor: pointer;
+  }
+
+  &__icon-box:hover {
+    background-color: $black;
+  }
+
+  &__icon-box:hover .control-panel__icon-refresh {
+    fill: $white;
+  }
+
+  &__icon-refresh {
+    fill: $black;
+    transition: $transition;
+  }
 }

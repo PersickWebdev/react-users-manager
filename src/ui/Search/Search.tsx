@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 
 import { Icons } from '../../ui';
 
@@ -9,9 +9,11 @@ interface ISearch {
     name: string;
     placeholder: string;
     customStyles?: any;
+    setSearchedValue: (state: string) => void;
+    isFilterActive: boolean;
 }
 
-const Search: FC<ISearch> = ({ id, name, placeholder, customStyles }: ISearch) => {
+const Search: FC<ISearch> = ({ id, name, placeholder, customStyles, setSearchedValue, isFilterActive }: ISearch) => {
     const [ inputValue, setInputValue ] = useState<string>('');
 
     const onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -19,13 +21,17 @@ const Search: FC<ISearch> = ({ id, name, placeholder, customStyles }: ISearch) =
     };
 
     const onIconSearchHandler = () => {
-        console.log('inputValue: ', inputValue);
+        setSearchedValue(inputValue);
     };
 
     const onKeyUpHandler = (event: React.KeyboardEvent<HTMLInputElement>) => {
         if (event.key !== 'Enter') return;
-        console.log('input value: ', inputValue);
+        setSearchedValue(inputValue);
     }
+
+    useEffect(() => {
+        !isFilterActive && setInputValue('');
+    }, [isFilterActive]);
 
     return (
         <div

@@ -51,12 +51,25 @@ const Table: FC<ITable> = ({ users, tableHeadingData }: ITable) => {
     });
 
     return (
-        <table className={styles['table']}>
-            <tr className={styles['table__heading-row']}>
-                {tableHeading}
-            </tr>
-            {tableRows}
-        </table>
+        <React.Fragment>
+        {users.length
+            ?
+            <table className={styles['table']}>
+                <thead>
+                    <tr className={styles['table__heading-row']}>
+                        {tableHeading}
+                    </tr>
+                </thead>
+                <tbody>
+                    {tableRows}
+                </tbody>
+            </table>
+                :
+                <p>
+                    No results found ...
+                </p>
+        }
+        </React.Fragment>
     );
 };
 
