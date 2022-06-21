@@ -1,0 +1,43 @@
+@import '../../scss/colors';
+@import '../../scss/variables';
+@import '../../scss/mixins';
+
+.search {
+  position: relative;
+
+  &__input {
+    width: 93%;
+    padding: 6px 8px;
+    border: 1px solid $black;
+    border-radius: 5px;
+    outline: none;
+  }
+
+  &__icon-box {
+    width: 27px;
+    height: 27.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 3px;
+    border: 1px solid $black;
+    border-radius: 5px;
+    transition: $transition;
+    cursor: pointer;
+  }
+
+  &__icon-box:hover {
+    background-color: $black;
+  }
+
+  &__icon-box:hover .search__icon-search {
+    fill: $white;
+  }
+
+  &__icon-search {
+    fill: $black;
+    transition: $transition;
+  }
+}

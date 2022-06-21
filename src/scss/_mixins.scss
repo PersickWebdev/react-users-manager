@@ -36,6 +36,7 @@
       color: $black;
       background-color: $white;
     }
+
   } @else if $preset == 'secondary' {
     border: 1px solid $black;
     color: $black;
@@ -46,6 +47,7 @@
       color: $white;
       background-color: $black;
     }
+
   } @else if $preset == 'isActive' {
     border: 1px solid $black;
     color: $black;

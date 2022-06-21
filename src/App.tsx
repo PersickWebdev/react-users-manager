@@ -27,7 +27,7 @@ export const App = () => {
                 <SwitchTransition>
                     <CSSTransition
                         key={location.key}
-                        timeout={200}
+                        timeout={150}
                         classNames="fade"
                         unmountOnExit={true}
                     >

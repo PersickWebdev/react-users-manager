@@ -22,11 +22,11 @@ html, body, #root {
 
 // For React Transition
 .fade-enter-active {
-  animation: fade-in 1s forwards;
+  animation: fade-in 0.3s forwards;
 }
 
 .fade-exit-active {
-  animation: fade-out 1s forwards;
+  animation: fade-out 0.3s forwards;
 }
 
 @keyframes fade-in {
