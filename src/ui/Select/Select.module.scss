@@ -1,0 +1,47 @@
+@import '../../scss/colors';
+@import '../../scss/variables';
+@import '../../scss/mixins';
+
+.select {
+  position: relative;
+
+  &__input {
+    width: 93%;
+    padding: 6px 8px;
+    border: 1px solid $black;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+  }
+
+  &__icon-arrow {
+    position: absolute;
+    top: 5px;
+    right: -5px;
+    transition: $transition;
+  }
+
+  &__icon-arrow.is-opened {
+    transform: rotate(180deg);
+  }
+
+  &__dropdown {
+    opacity: 0;
+    width: 104%;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    list-style: none;
+    border: 1px solid $black;
+    border-radius: 5px;
+    background-color: $white;
+  }
+
+  &__dropdown.is-opened {
+    opacity: 1;
+  }
+
+  &__dropdown-item {
+
+  }
+}

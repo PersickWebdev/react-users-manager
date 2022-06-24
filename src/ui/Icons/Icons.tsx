@@ -35,4 +35,20 @@ export const Icons = {
             </svg>
         );
     },
+    arrow: (options: {}, handler?: any) => {
+        return (
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20px"
+                height="20px"
+                viewBox="0 0 30 30"
+                fill="none"
+                onClick={handler ? handler : null}
+                {...options}
+            >
+                <path d="M15 10L21.9282 18.25H8.0718L15 10Z" fill="black"/>
+                <path d="M15 11L21.9282 19.25H8.0718L15 11Z" fill="white"/>
+            </svg>
+        );
+    },
 }

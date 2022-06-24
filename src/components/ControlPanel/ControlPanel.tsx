@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import {Icons, Search} from '../../ui';
+import { Icons, Search, Select } from '../../ui';
 
 import styles from './ControlPanel.module.scss';
 import '../../index.scss';
@@ -24,6 +24,12 @@ const ControlPanel: FC<IControlPanel> = ({ isFilterActive, setSearchedValue }: I
                 customStyles={{ width: '300px' }}
                 setSearchedValue={setSearchedValue}
                 isFilterActive={isFilterActive}
+            />
+            <Select
+                id='select-country'
+                name='country'
+                placeholder='Choose country'
+                customStyles={{ width: '150px' }}
             />
             <div
                 className={styles['control-panel__icon-box']}
