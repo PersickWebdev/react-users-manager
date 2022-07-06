@@ -7,14 +7,26 @@ interface ISelect {
     id: string;
     name: string;
     placeholder: string;
+    dropdownItems: string[];
     customStyles: any;
 }
 
-const Select: FC<ISelect> = ({ id, name, placeholder, customStyles }: ISelect) => {
+const Select: FC<ISelect> = ({ id, name, placeholder, dropdownItems, customStyles }: ISelect) => {
     const [ inputValue, setInputValue ] = useState<string>('');
     const [ isDropdownOpened, setIsDropdownOpened ] = useState<boolean>(false);
 
     const dropdownRef = useRef<HTMLUListElement>(null);
+
+    const dropdownListItems = dropdownItems.map((item: string, index: number) => {
+        return (
+            <li
+                className={styles['select__dropdown-item']}
+                key={`${item}_${index}`}
+            >
+                {item}
+            </li>
+        )
+    });
 
     const onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
         setInputValue(event.target.value);
@@ -51,9 +63,7 @@ const Select: FC<ISelect> = ({ id, name, placeholder, customStyles }: ISelect) =
                 className={`${styles['select__dropdown']} ${isDropdownOpened ? styles['is-opened'] : ''}`}
                 ref={dropdownRef}
             >
-                <li className={styles['select__dropdown-item']}>Item 01</li>
-                <li className={styles['select__dropdown-item']}>Item 02</li>
-                <li className={styles['select__dropdown-item']}>Item 03</li>
+                {dropdownListItems}
             </ul>
         </div>
     );

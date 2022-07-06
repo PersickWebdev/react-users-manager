@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 
+import { useSelector } from 'react-redux';
 import { Icons, Search, Select } from '../../ui';
 
 import styles from './ControlPanel.module.scss';
@@ -11,6 +12,8 @@ interface IControlPanel {
 }
 
 const ControlPanel: FC<IControlPanel> = ({ isFilterActive, setSearchedValue }: IControlPanel) => {
+    // @ts-ignore
+    const { countries } = useSelector((state) => state.autoCompleteReducer);
     const refreshHandler = () => {
         setSearchedValue('');
     };
@@ -29,6 +32,7 @@ const ControlPanel: FC<IControlPanel> = ({ isFilterActive, setSearchedValue }: I
                 id='select-country'
                 name='country'
                 placeholder='Choose country'
+                dropdownItems={countries}
                 customStyles={{ width: '150px' }}
             />
             <div

@@ -14,5 +14,15 @@ export const useUtils = () => {
         })
     };
 
-    return { filterUsers };
+    const getAllCountries = (sourceArray: IUser[]) => {
+        const resultArray = new Set();
+
+        sourceArray.forEach((userObject: IUser) => {
+            resultArray.add(userObject.company.country);
+        });
+
+        return <string[]>Array.from(resultArray);
+    };
+
+    return { filterUsers, getAllCountries };
 }
