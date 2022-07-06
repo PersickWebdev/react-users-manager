@@ -36,7 +36,8 @@ const ControlPanel: FC<IControlPanel> = ({ isFilterActive, setSearchedValue }: I
             >
                 {Icons.refresh({
                     className: `${styles['control-panel__icon-refresh']}`
-                }, refreshHandler)}
+                    }, refreshHandler)
+                }
             </div>
         </div>
     );

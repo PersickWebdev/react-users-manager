@@ -42,6 +42,13 @@
   }
 
   &__dropdown-item {
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: $transition;
+  }
 
+  &__dropdown-item:hover {
+    color: $white;
+    background-color: $black;
   }
 }

@@ -1,4 +1,4 @@
-import React, {FC, useState, useEffect, useRef, RefObject} from 'react';
+import React, { FC, useState, useRef } from 'react';
 import styles from './Select.module.scss';
 import { Icons } from '../../ui';
 import { useOnClickOutside } from '../../utils';
