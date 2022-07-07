@@ -1,30 +1,33 @@
-import React, { FC, useState, useRef } from 'react';
+import React, { FC, useState, useEffect, useRef } from 'react';
 import styles from './Select.module.scss';
 import { Icons } from '../../ui';
 import { useOnClickOutside } from '../../utils';
+import { SelectItem } from './SelectItem';
 
 interface ISelect {
     id: string;
     name: string;
     placeholder: string;
     dropdownItems: string[];
+    setSearchedValue: (state: string) => void;
+    isFilterActive: boolean;
     customStyles: any;
 }
 
-const Select: FC<ISelect> = ({ id, name, placeholder, dropdownItems, customStyles }: ISelect) => {
+const Select: FC<ISelect> = ({ id, name, placeholder, dropdownItems, setSearchedValue, isFilterActive, customStyles }: ISelect) => {
     const [ inputValue, setInputValue ] = useState<string>('');
     const [ isDropdownOpened, setIsDropdownOpened ] = useState<boolean>(false);
 
     const dropdownRef = useRef<HTMLUListElement>(null);
 
-    const dropdownListItems = dropdownItems.map((item: string, index: number) => {
+    const dropdownElements = dropdownItems.map((item: string, index: number) => {
         return (
-            <li
-                className={styles['select__dropdown-item']}
-                key={`${item}_${index}`}
-            >
-                {item}
-            </li>
+            <SelectItem
+                name={item}
+                index={index}
+                setInputValue={setInputValue}
+                setSearchedValue={setSearchedValue}
+            />
         )
     });
 
@@ -35,6 +38,17 @@ const Select: FC<ISelect> = ({ id, name, placeholder, dropdownItems, customStyle
     const openDropdownHandler = () => {
         setIsDropdownOpened(true);
     };
+
+    useEffect(() => {
+        setIsDropdownOpened(false);
+    }, [ inputValue ]);
+
+    useEffect(() => {
+        if (!isFilterActive) {
+            setInputValue('');
+            setSearchedValue('');
+        }
+    }, [isFilterActive]);
 
     useOnClickOutside(dropdownRef, () => setIsDropdownOpened(false));
     
@@ -63,7 +77,7 @@ const Select: FC<ISelect> = ({ id, name, placeholder, dropdownItems, customStyle
                 className={`${styles['select__dropdown']} ${isDropdownOpened ? styles['is-opened'] : ''}`}
                 ref={dropdownRef}
             >
-                {dropdownListItems}
+                {dropdownElements}
             </ul>
         </div>
     );

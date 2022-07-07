@@ -14,6 +14,7 @@ interface IControlPanel {
 const ControlPanel: FC<IControlPanel> = ({ isFilterActive, setSearchedValue }: IControlPanel) => {
     // @ts-ignore
     const { countries } = useSelector((state) => state.autoCompleteReducer);
+
     const refreshHandler = () => {
         setSearchedValue('');
     };
@@ -34,6 +35,8 @@ const ControlPanel: FC<IControlPanel> = ({ isFilterActive, setSearchedValue }: I
                 placeholder='Choose country'
                 dropdownItems={countries}
                 customStyles={{ width: '150px' }}
+                setSearchedValue={setSearchedValue}
+                isFilterActive={isFilterActive}
             />
             <div
                 className={styles['control-panel__icon-box']}
