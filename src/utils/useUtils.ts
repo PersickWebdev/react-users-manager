@@ -10,6 +10,7 @@ export const useUtils = () => {
                 || item.company.name.toLowerCase().indexOf(searchOption.toLowerCase()) !== -1
                 || item.company.country.toLowerCase().indexOf(searchOption.toLowerCase()) !== -1
                 || item.company.industry.toLowerCase().indexOf(searchOption.toLowerCase()) !== -1
+                || item.company.email.toLowerCase().indexOf(searchOption.toLowerCase()) !== -1
             )
             {
                 return item;
