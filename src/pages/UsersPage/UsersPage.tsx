@@ -19,6 +19,8 @@ const UsersPage: FC<IUsersPage> = ({}: IUsersPage) => {
     const { users } = useSelector((state) => state.usersReducer);
     const [ searchedValue, setSearchedValue ] = useState<string>('');
     const [ isFilterActive, setIsFilterActive ] = useState<boolean>(false);
+    // Todo: rewrite filtration to become more universal
+    const [ filterOptions, setFilterOptions ] = useState({});
     const [ filteredUsers, setFilteredUsers ] = useState<IUser[]>([]);
 
     useEffect(() => {
