@@ -13,7 +13,11 @@ interface IControlPanel {
 
 const ControlPanel: FC<IControlPanel> = ({ isFilterActive, setSearchedValue }: IControlPanel) => {
     // @ts-ignore
-    const { countries } = useSelector((state) => state.autoCompleteReducer);
+    const { countries } = useSelector((state) => state.autoFillReducer);
+    // @ts-ignore
+    const { industries } = useSelector((state) => state.autoFillReducer);
+    // @ts-ignore
+    const { statuses } = useSelector((state) => state.autoFillReducer);
 
     const refreshHandler = () => {
         setSearchedValue('');
@@ -34,6 +38,24 @@ const ControlPanel: FC<IControlPanel> = ({ isFilterActive, setSearchedValue }: I
                 name='country'
                 placeholder='Choose country'
                 dropdownItems={countries}
+                customStyles={{ width: '150px' }}
+                setSearchedValue={setSearchedValue}
+                isFilterActive={isFilterActive}
+            />
+            <Select
+                id='select-industry'
+                name='industry'
+                placeholder='Choose industry'
+                dropdownItems={industries}
+                customStyles={{ width: '150px' }}
+                setSearchedValue={setSearchedValue}
+                isFilterActive={isFilterActive}
+            />
+            <Select
+                id='select-status'
+                name='status'
+                placeholder='Choose status'
+                dropdownItems={statuses}
                 customStyles={{ width: '150px' }}
                 setSearchedValue={setSearchedValue}
                 isFilterActive={isFilterActive}

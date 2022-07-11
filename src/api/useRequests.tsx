@@ -1,11 +1,11 @@
 import axios from 'axios';
 import { Endpoints } from '../api';
 import { usersActions } from '../redux/actionCreators';
-import { autoCompleteActions } from '../redux/actionCreators';
+import { autoFillActions } from '../redux/actionCreators';
 import { useUtils } from '../utils';
 
 export const useRequests = () => {
-    const { getAllCountries } = useUtils();
+    const { getAutofillData } = useUtils();
 
     // To get all users:
     const getAllUsersRequest = () => {
@@ -16,7 +16,9 @@ export const useRequests = () => {
     const getAllUsersThunk = () => async (dispatch: any) => {
         const response = await axios.get(Endpoints.users);
         dispatch(usersActions.getAll(response.data));
-        dispatch(autoCompleteActions.getCountries(getAllCountries(response.data)));
+        dispatch(autoFillActions.getCountries(getAutofillData(response.data, 'country', 'company')));
+        dispatch(autoFillActions.getIndustries(getAutofillData(response.data, 'industry', 'company')));
+        dispatch(autoFillActions.getStatuses(getAutofillData(response.data, 'status', '')));
     };
 
     // To get, add, edit and remove one user:

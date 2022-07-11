@@ -1,5 +1,5 @@
 export { usersActions } from './usersActions';
 export type { IUsersActions } from './usersActions';
 
-export { autoCompleteActions } from './autoCompleteActions';
-export type { IAutoCompleteActions } from './autoCompleteActions';
+export { autoFillActions } from './autoFillActions';
+export type { IAutoFillActions } from './autoFillActions';
