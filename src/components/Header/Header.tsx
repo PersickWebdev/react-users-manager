@@ -7,8 +7,6 @@ interface IHeader {}
 const Header:FC<IHeader> = () => {
     const [ activePageId, setActivePageId ] = useState<number>(0);
 
-    console.log('Header - activePageId: ', activePageId);
-
     return (
         <header className={styles['header']}>
             <div className={styles['container']}>

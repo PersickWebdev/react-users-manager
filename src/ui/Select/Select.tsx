@@ -23,6 +23,7 @@ const Select: FC<ISelect> = ({ id, name, placeholder, dropdownItems, setSearched
     const dropdownElements = dropdownItems.map((item: string, index: number) => {
         return (
             <SelectItem
+                key={`${item}_${index}`}
                 name={item}
                 index={index}
                 setInputValue={setInputValue}

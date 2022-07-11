@@ -23,8 +23,6 @@ const Navigation = ({ activePageId, setActivePageId }: INavigation) => {
         )
     });
 
-    console.log('Navigation')
-
     return (
         <nav className={styles['navigation']}>
             <ul className={styles['navigation__list']}>

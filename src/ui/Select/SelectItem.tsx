@@ -17,7 +17,6 @@ export const SelectItem: FC<ISelectItem> = ({ name, index, setInputValue, setSea
     return (
         <li
             className={styles['select__dropdown-item']}
-            key={`${name}_${index}`}
             onClick={onClickHandler}
         >
             {name}
