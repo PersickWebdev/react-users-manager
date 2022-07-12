@@ -9,12 +9,12 @@ interface ISelect {
     name: string;
     placeholder: string;
     dropdownItems: string[];
-    setSearchedValue: (state: string) => void;
+    setFilterOptions: (state: {}) => void;
     isFilterActive: boolean;
     customStyles: any;
 }
 
-const Select: FC<ISelect> = ({ id, name, placeholder, dropdownItems, setSearchedValue, isFilterActive, customStyles }: ISelect) => {
+const Select: FC<ISelect> = ({ id, name, placeholder, dropdownItems, setFilterOptions, isFilterActive, customStyles }: ISelect) => {
     const [ inputValue, setInputValue ] = useState<string>('');
     const [ isDropdownOpened, setIsDropdownOpened ] = useState<boolean>(false);
 
@@ -24,10 +24,11 @@ const Select: FC<ISelect> = ({ id, name, placeholder, dropdownItems, setSearched
         return (
             <SelectItem
                 key={`${item}_${index}`}
-                name={item}
+                name={name}
+                label={item}
                 index={index}
                 setInputValue={setInputValue}
-                setSearchedValue={setSearchedValue}
+                setFilterOptions={setFilterOptions}
             />
         )
     });
@@ -47,7 +48,12 @@ const Select: FC<ISelect> = ({ id, name, placeholder, dropdownItems, setSearched
     useEffect(() => {
         if (!isFilterActive) {
             setInputValue('');
-            setSearchedValue('');
+            setFilterOptions(() => {
+                const cleanObject = {};
+                return {
+                    ...cleanObject
+                }
+            });
         }
     }, [isFilterActive]);
 

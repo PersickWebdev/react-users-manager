@@ -17,27 +17,27 @@ const UsersPage: FC<IUsersPage> = ({}: IUsersPage) => {
     // Todo: find out 'useSelector' typing
     // @ts-ignore
     const { users } = useSelector((state) => state.usersReducer);
-    const [ searchedValue, setSearchedValue ] = useState<string>('');
     const [ isFilterActive, setIsFilterActive ] = useState<boolean>(false);
-    // Todo: rewrite filtration to become more universal
     const [ filterOptions, setFilterOptions ] = useState({});
     const [ filteredUsers, setFilteredUsers ] = useState<IUser[]>([]);
 
     useEffect(() => {
-        if (searchedValue !== '') {
+        if (Object.keys(filterOptions).length) {
             setIsFilterActive(true);
-            setFilteredUsers(filterUsers(users, searchedValue));
+            setFilteredUsers(filterUsers(users, filterOptions));
         } else {
             setIsFilterActive(false);
         }
-    }, [searchedValue]);
+    }, [filterOptions]);
+
+    console.log('Users Page - filterOptions: ', filterOptions);
 
     return (
         <div className={styles['users-page']}>
             <div className={styles['container']}>
                 <ControlPanel
                     isFilterActive={isFilterActive}
-                    setSearchedValue={setSearchedValue}
+                    setFilterOptions={setFilterOptions}
                 />
                 <Table
                     users={isFilterActive ? filteredUsers : users}

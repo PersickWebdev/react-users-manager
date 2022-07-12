@@ -3,15 +3,21 @@ import styles from './Select.module.scss';
 
 interface ISelectItem {
     name: string;
+    label: string;
     index: number;
     setInputValue: (state: string) => void;
-    setSearchedValue: (state: string) => void;
+    setFilterOptions: (state: {}) => void;
 }
 
-export const SelectItem: FC<ISelectItem> = ({ name, index, setInputValue, setSearchedValue }: ISelectItem) => {
+export const SelectItem: FC<ISelectItem> = ({ name, label, index, setInputValue, setFilterOptions }: ISelectItem) => {
     const onClickHandler = () => {
         setInputValue(name);
-        setSearchedValue(name);
+        setFilterOptions((state: {}) => {
+            return {
+                ...state,
+                [name]: label
+            }
+        });
     }
 
     return (
@@ -19,7 +25,7 @@ export const SelectItem: FC<ISelectItem> = ({ name, index, setInputValue, setSea
             className={styles['select__dropdown-item']}
             onClick={onClickHandler}
         >
-            {name}
+            {label}
         </li>
     );
 };

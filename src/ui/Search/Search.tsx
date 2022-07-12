@@ -9,11 +9,11 @@ interface ISearch {
     name: string;
     placeholder: string;
     customStyles?: any;
-    setSearchedValue: (state: string) => void;
+    setFilterOptions: (state: {}) => void;
     isFilterActive: boolean;
 }
 
-const Search: FC<ISearch> = ({ id, name, placeholder, customStyles, setSearchedValue, isFilterActive }: ISearch) => {
+const Search: FC<ISearch> = ({ id, name, placeholder, customStyles, setFilterOptions, isFilterActive }: ISearch) => {
     const [ inputValue, setInputValue ] = useState<string>('');
 
     const onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -21,12 +21,26 @@ const Search: FC<ISearch> = ({ id, name, placeholder, customStyles, setSearchedV
     };
 
     const onIconSearchHandler = () => {
-        setSearchedValue(inputValue);
+        setFilterOptions((state: {}) => {
+            return {
+                ...state,
+                name: inputValue,
+                lastName: inputValue,
+                email: inputValue,
+            }
+        });
     };
 
     const onKeyUpHandler = (event: React.KeyboardEvent<HTMLInputElement>) => {
         if (event.key !== 'Enter') return;
-        setSearchedValue(inputValue);
+        setFilterOptions((state: {}) => {
+            return {
+                ...state,
+                name: inputValue,
+                lastName: inputValue,
+                email: inputValue,
+            }
+        });
     }
 
     useEffect(() => {

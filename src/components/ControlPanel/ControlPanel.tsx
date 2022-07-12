@@ -8,10 +8,10 @@ import '../../index.scss';
 
 interface IControlPanel {
     isFilterActive: boolean;
-    setSearchedValue: (state: string) => void;
+    setFilterOptions: (state: any) => void;
 }
 
-const ControlPanel: FC<IControlPanel> = ({ isFilterActive, setSearchedValue }: IControlPanel) => {
+const ControlPanel: FC<IControlPanel> = ({ isFilterActive, setFilterOptions }: IControlPanel) => {
     // @ts-ignore
     const { countries } = useSelector((state) => state.autoFillReducer);
     // @ts-ignore
@@ -20,7 +20,12 @@ const ControlPanel: FC<IControlPanel> = ({ isFilterActive, setSearchedValue }: I
     const { statuses } = useSelector((state) => state.autoFillReducer);
 
     const refreshHandler = () => {
-        setSearchedValue('');
+        setFilterOptions(() => {
+            const cleanObject = {};
+            return {
+                ...cleanObject
+            }
+        });
     };
 
     return (
@@ -30,7 +35,7 @@ const ControlPanel: FC<IControlPanel> = ({ isFilterActive, setSearchedValue }: I
                 name='search'
                 placeholder='Search by name, company, email ...'
                 customStyles={{ width: '300px' }}
-                setSearchedValue={setSearchedValue}
+                setFilterOptions={setFilterOptions}
                 isFilterActive={isFilterActive}
             />
             <Select
@@ -39,7 +44,7 @@ const ControlPanel: FC<IControlPanel> = ({ isFilterActive, setSearchedValue }: I
                 placeholder='Choose country'
                 dropdownItems={countries}
                 customStyles={{ width: '150px' }}
-                setSearchedValue={setSearchedValue}
+                setFilterOptions={setFilterOptions}
                 isFilterActive={isFilterActive}
             />
             <Select
@@ -48,7 +53,7 @@ const ControlPanel: FC<IControlPanel> = ({ isFilterActive, setSearchedValue }: I
                 placeholder='Choose industry'
                 dropdownItems={industries}
                 customStyles={{ width: '150px' }}
-                setSearchedValue={setSearchedValue}
+                setFilterOptions={setFilterOptions}
                 isFilterActive={isFilterActive}
             />
             <Select
@@ -57,7 +62,7 @@ const ControlPanel: FC<IControlPanel> = ({ isFilterActive, setSearchedValue }: I
                 placeholder='Choose status'
                 dropdownItems={statuses}
                 customStyles={{ width: '150px' }}
-                setSearchedValue={setSearchedValue}
+                setFilterOptions={setFilterOptions}
                 isFilterActive={isFilterActive}
             />
             <div

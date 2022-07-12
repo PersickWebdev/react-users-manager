@@ -24,19 +24,20 @@ export const useUtils = () => {
         const matchesSet = new Set();
 
         sourceArray.forEach((user: IUser) => {
+
             Object.keys(user).forEach((key: string) => {
                 // @ts-ignore
                 if (typeof user[key] === 'object') {
                     // @ts-ignore
                     Object.keys(user[key]).forEach((k) => {
                         // @ts-ignore
-                        if (user[key][k] === optionsObject[k]) {
+                        if (String(user[key][k]).toLowerCase() === String(optionsObject[k]).toLowerCase()) {
                             matchesSet.add(user);
                         }
                     })
                 } else {
                     // @ts-ignore
-                    if (user[key] === optionsObject[key]) {
+                    if (String(user[key]).toLowerCase() === String(optionsObject[key]).toLowerCase()) {
                         matchesSet.add(user);
                     }
                 }
