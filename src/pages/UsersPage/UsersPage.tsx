@@ -30,8 +30,6 @@ const UsersPage: FC<IUsersPage> = ({}: IUsersPage) => {
         }
     }, [filterOptions]);
 
-    console.log('Users Page - filterOptions: ', filterOptions);
-
     return (
         <div className={styles['users-page']}>
             <div className={styles['container']}>

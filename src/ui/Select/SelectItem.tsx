@@ -11,7 +11,7 @@ interface ISelectItem {
 
 export const SelectItem: FC<ISelectItem> = ({ name, label, index, setInputValue, setFilterOptions }: ISelectItem) => {
     const onClickHandler = () => {
-        setInputValue(name);
+        setInputValue(label);
         setFilterOptions((state: {}) => {
             return {
                 ...state,
