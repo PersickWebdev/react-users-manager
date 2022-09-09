@@ -7,11 +7,12 @@ import styles from './ControlPanel.module.scss';
 import '../../index.scss';
 
 interface IControlPanel {
+    isAbleToManage: boolean;
     isFilterActive: boolean;
     setFilterOptions: (state: any) => void;
 }
 
-const ControlPanel: FC<IControlPanel> = ({ isFilterActive, setFilterOptions }: IControlPanel) => {
+const ControlPanel: FC<IControlPanel> = ({ isFilterActive, setFilterOptions, isAbleToManage = false }: IControlPanel) => {
     // @ts-ignore
     const { countries } = useSelector((state) => state.autoFillReducer);
     // @ts-ignore
@@ -28,8 +29,21 @@ const ControlPanel: FC<IControlPanel> = ({ isFilterActive, setFilterOptions }: I
         });
     };
 
+    const addHandler = () => {
+        console.log('addHandler')
+    };
+
     return (
         <div className={styles['control-panel']}>
+            {isAbleToManage
+                &&
+                <div className={styles['control-panel__icon-box']}>
+                    {Icons.add({
+                        className: `${styles['control-panel__icon-refresh']}`
+                        }, addHandler)
+                    }
+                </div>
+            }
             <Search
                 id='search'
                 name='search'
@@ -65,9 +79,7 @@ const ControlPanel: FC<IControlPanel> = ({ isFilterActive, setFilterOptions }: I
                 setFilterOptions={setFilterOptions}
                 isFilterActive={isFilterActive}
             />
-            <div
-                className={styles['control-panel__icon-box']}
-            >
+            <div className={styles['control-panel__icon-box']}>
                 {Icons.refresh({
                     className: `${styles['control-panel__icon-refresh']}`
                     }, refreshHandler)

@@ -7,5 +7,6 @@
 
   & .container {
     @include container();
+    overflow: hidden;
   }
 }

@@ -34,10 +34,12 @@ const UsersPage: FC<IUsersPage> = ({}: IUsersPage) => {
         <div className={styles['users-page']}>
             <div className={styles['container']}>
                 <ControlPanel
+                    isAbleToManage={false}
                     isFilterActive={isFilterActive}
                     setFilterOptions={setFilterOptions}
                 />
                 <Table
+                    isAbleToManage={false}
                     users={isFilterActive ? filteredUsers : users}
                     tableHeadingData={['name', 'company', 'country', 'industry', 'email', 'status', 'rating']}
                 />

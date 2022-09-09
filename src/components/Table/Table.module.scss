@@ -56,10 +56,61 @@
     text-align: right;
   }
 
+  &__heading-cell.actions {
+    width: 50px;
+    padding-right: 10px;
+    text-align: right;
+  }
+
   &__row {
     display: flex;
     justify-content: space-between;
+    position: relative;
     border-bottom: 1px solid $black;
+  }
+
+  &__row-actions-panel {
+    width: 7%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translateX(155px);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: $white;
+    transition: $transition;
+  }
+
+  &__row-actions-panel.is-visible {
+    transform: translateX(0);
+  }
+
+  &__icon-box {
+    margin-left: 5px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid $black;
+    border-radius: 5px;
+    transition: $transition;
+    cursor: pointer
+  }
+
+  &__icon-box:hover {
+    background-color: $black;
+  }
+
+  &__icon-box:hover .table__icon-refresh {
+    fill: $white;
+  }
+
+  &__icon-refresh {
+    fill: $black;
+    transition: $transition;
   }
 
   &__cell {

@@ -1,13 +1,33 @@
-import React, { FC } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import styles from './Table.module.scss';
+
 import { IUser } from '../../types';
+import { Icons } from '../../ui';
 
 interface ITable {
-    users: IUser[],
-    tableHeadingData: string[],
+    isAbleToManage: boolean;
+    users: IUser[];
+    tableHeadingData: string[];
 }
 
-const Table: FC<ITable> = ({ users, tableHeadingData }: ITable) => {
+const Table: FC<ITable> = ({ users, tableHeadingData, isAbleToManage }: ITable) => {
+    const [ activeRowId, setActiveRowId ] = useState(0);
+
+    const infoHandler = (id: number) => {
+        console.log('infoHandler');
+        console.log('Id: ', id);
+    };
+
+    const editHandler = (id: number) => {
+        console.log('editHandler');
+        console.log('Id: ', id);
+    };
+
+    const removeHandler = (id: number) => {
+        console.log('removeHandler');
+        console.log('Id: ', id);
+    };
+
     const tableHeading = tableHeadingData.map((item: string, index: number) => {
         return (
             <th
@@ -24,6 +44,8 @@ const Table: FC<ITable> = ({ users, tableHeadingData }: ITable) => {
            <tr
                className={styles['table__row']}
                key={item.id}
+               id={String(item.id)}
+               onClick={() => setActiveRowId(Number(item.id))}
            >
                <td className={`${styles['table__cell']} ${styles['user-name']}`}>
                    {item.personal.name} {item.personal.lastName}
@@ -46,6 +68,31 @@ const Table: FC<ITable> = ({ users, tableHeadingData }: ITable) => {
                <td className={`${styles['table__cell']} ${styles['rating']}`}>
                    {item.company.rating}/100
                </td>
+               {isAbleToManage
+                   ?
+                   <div className={`${styles['table__row-actions-panel']} ${activeRowId === Number(item.id) ? styles['is-visible'] : ''}`}>
+                       <div className={styles['table__icon-box']}>
+                           {Icons.info({
+                               className: `${styles['table__icon-refresh']}`
+                           }, () => infoHandler(Number(item.id)))
+                           }
+                       </div>
+                       <div className={styles['table__icon-box']}>
+                           {Icons.edit({
+                               className: `${styles['table__icon-refresh']}`
+                           }, () => editHandler(Number(item.id)))
+                           }
+                       </div>
+                       <div className={styles['table__icon-box']}>
+                           {Icons.remove({
+                               className: `${styles['table__icon-refresh']}`
+                           }, () => removeHandler(Number(item.id)))
+                           }
+                       </div>
+                   </div>
+                   :
+                   <></>
+               }
            </tr>
        )
     });
