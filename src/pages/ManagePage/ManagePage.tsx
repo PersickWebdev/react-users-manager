@@ -1,8 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { ControlPanel } from '../../components';
 import { Table } from '../../components';
+import { Profile } from '../../components';
 import { useUtils } from '../../utils';
 
 import { IUser } from '../../types';
@@ -20,6 +21,7 @@ const ManagePage = ({}: IManagePage) => {
     const [ isFilterActive, setIsFilterActive ] = useState<boolean>(false);
     const [ filterOptions, setFilterOptions ] = useState({});
     const [ filteredUsers, setFilteredUsers ] = useState<IUser[]>([]);
+    const [ profileId, setProfileId ] = useState<number>(0);
 
     useEffect(() => {
         if (Object.keys(filterOptions).length) {
@@ -30,20 +32,30 @@ const ManagePage = ({}: IManagePage) => {
         }
     }, [filterOptions]);
 
+    console.log(`ManagePage - profile id: `, profileId);
+
     return (
         <div className={styles['manage-page']}>
             <div className={styles['container']}>
-                <ControlPanel
-                    isAbleToManage={true}
-                    isFilterActive={isFilterActive}
-                    setFilterOptions={setFilterOptions}
-                />
-                <p>Click row to call additional options</p>
-                <Table
-                    isAbleToManage={true}
-                    users={isFilterActive ? filteredUsers : users}
-                    tableHeadingData={['name', 'company', 'country', 'industry', 'email', 'status', 'rating']}
-                />
+                {profileId !== 0
+                    ?
+                    <Profile userId={profileId}/>
+                    :
+                    <>
+                        <ControlPanel
+                            isAbleToManage={true}
+                            isFilterActive={isFilterActive}
+                            setFilterOptions={setFilterOptions}
+                        />
+                        <p>Click row to call additional options</p>
+                        <Table
+                            isAbleToManage={true}
+                            setProfileId={setProfileId}
+                            users={isFilterActive ? filteredUsers : users}
+                            tableHeadingData={['name', 'company', 'country', 'industry', 'email', 'status', 'rating']}
+                        />
+                    </>
+                }
             </div>
         </div>
     );
