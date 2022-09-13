@@ -34,6 +34,7 @@ const Profile = ({ userId }: IProfile) => {
     return (
         <div className={styles['profile']}>
             <h3 className={styles['profile__heading-03']}>
+                <span>ID: {currentUser?.id}</span>
                 <span>{currentUser?.personal?.name} {currentUser?.personal?.lastName}</span>
                 <span>{currentUser?.status}</span>
             </h3>
