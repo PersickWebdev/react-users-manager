@@ -1,8 +1,7 @@
-import React, { FC, useState, useEffect } from 'react';
+import React, { FC } from 'react';
 import styles from './Table.module.scss';
 
 import { IUser } from '../../types';
-import { Icons } from '../../ui';
 
 interface ITable {
     isAbleToManage: boolean;
@@ -16,21 +15,6 @@ const Table: FC<ITable> = ({ users, tableHeadingData, isAbleToManage, setProfile
     const openProfileHandler = (id: number) => {
         setProfileId && setProfileId(id);
     };
-
-    // const infoHandler = (id: number) => {
-    //     console.log('infoHandler');
-    //     console.log('Id: ', id);
-    // };
-    //
-    // const editHandler = (id: number) => {
-    //     console.log('editHandler');
-    //     console.log('Id: ', id);
-    // };
-    //
-    // const removeHandler = (id: number) => {
-    //     console.log('removeHandler');
-    //     console.log('Id: ', id);
-    // };
 
     const tableHeading = tableHeadingData.map((item: string, index: number) => {
         return (
@@ -72,31 +56,6 @@ const Table: FC<ITable> = ({ users, tableHeadingData, isAbleToManage, setProfile
                <td className={`${styles['table__cell']} ${styles['rating']}`}>
                    {item.company.rating}/100
                </td>
-               {/*{isAbleToManage*/}
-               {/*    ?*/}
-               {/*    <div className={`${styles['table__row-actions-panel']} ${activeRowId === Number(item.id) ? styles['is-visible'] : ''}`}>*/}
-               {/*        <div className={styles['table__icon-box']}>*/}
-               {/*            {Icons.info({*/}
-               {/*                className: `${styles['table__icon-refresh']}`*/}
-               {/*            }, () => infoHandler(Number(item.id)))*/}
-               {/*            }*/}
-               {/*        </div>*/}
-               {/*        <div className={styles['table__icon-box']}>*/}
-               {/*            {Icons.edit({*/}
-               {/*                className: `${styles['table__icon-refresh']}`*/}
-               {/*            }, () => editHandler(Number(item.id)))*/}
-               {/*            }*/}
-               {/*        </div>*/}
-               {/*        <div className={styles['table__icon-box']}>*/}
-               {/*            {Icons.remove({*/}
-               {/*                className: `${styles['table__icon-refresh']}`*/}
-               {/*            }, () => removeHandler(Number(item.id)))*/}
-               {/*            }*/}
-               {/*        </div>*/}
-               {/*    </div>*/}
-               {/*    :*/}
-               {/*    <></>*/}
-               {/*}*/}
            </tr>
        )
     });

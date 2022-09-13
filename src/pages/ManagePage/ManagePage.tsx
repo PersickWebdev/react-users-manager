@@ -32,8 +32,6 @@ const ManagePage = ({}: IManagePage) => {
         }
     }, [filterOptions]);
 
-    console.log(`ManagePage - profile id: `, profileId);
-
     return (
         <div className={styles['manage-page']}>
             <div className={styles['container']}>

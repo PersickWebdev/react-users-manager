@@ -1,13 +1,13 @@
 @import './colors';
 @import './variables';
 
-@mixin container () {
+@mixin container() {
   max-width: 1024px;
   margin: 0 auto;
   padding: 0 10px;
 }
 
-@mixin text ($size, $weight, $height, $transform, $decoration, $color) {
+@mixin text($size, $weight, $height, $transform, $decoration, $color) {
   font-size: $size;
   font-weight: $weight;
   line-height: $height;
@@ -53,4 +53,12 @@
     color: $black;
     background-color: $white;
   }
+}
+
+@mixin heading($size, $color) {
+  font-size: $size;
+  font-weight: 600;
+  line-height: 100%;
+  text-transform: uppercase;
+  color: $color;
 }
