@@ -6,14 +6,15 @@ import { IUser } from '../../types';
 
 interface IProfile {
     userId: number;
+    setIsModalVisible: (state: boolean) => void;
 }
 
-const Profile = ({ userId }: IProfile) => {
+const Profile = ({ userId, setIsModalVisible }: IProfile) => {
     const { manageUserRequest } = useRequests();
     const [ currentUser, setCurrentUser ] = useState({} as IUser);
 
     const editHandler = () => {
-
+        setIsModalVisible(false);
     };
 
     const removeHandler = () => {

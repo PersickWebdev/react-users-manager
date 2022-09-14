@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { ControlPanel } from '../../components';
 import { Table } from '../../components';
 import { Profile } from '../../components';
+import { Modal } from '../../ui';
 import { useUtils } from '../../utils';
 
 import { IUser } from '../../types';
@@ -22,6 +23,7 @@ const ManagePage = ({}: IManagePage) => {
     const [ filterOptions, setFilterOptions ] = useState({});
     const [ filteredUsers, setFilteredUsers ] = useState<IUser[]>([]);
     const [ profileId, setProfileId ] = useState<number>(0);
+    const [ isModalVisible, setIsModalVisible ] = useState<boolean>(false);
 
     useEffect(() => {
         if (Object.keys(filterOptions).length) {
@@ -37,7 +39,10 @@ const ManagePage = ({}: IManagePage) => {
             <div className={styles['container']}>
                 {profileId !== 0
                     ?
-                    <Profile userId={profileId}/>
+                    <Profile
+                        userId={profileId}
+                        setIsModalVisible={setIsModalVisible}
+                    />
                     :
                     <>
                         <ControlPanel
@@ -55,6 +60,27 @@ const ManagePage = ({}: IManagePage) => {
                     </>
                 }
             </div>
+
+            <Modal
+                heading='Modal Heading'
+                description='Modal description'
+                isModalVisible={isModalVisible}
+                setIsModalVisible={setIsModalVisible}
+            >
+                <p>
+                    Modal children
+                </p>
+                <div className={styles['manage-page__buttons']}>
+                    <a
+                        className={styles['manage-page__button']}
+                        href="#"
+                        onClick={() => setIsModalVisible(false)}
+                    >
+                        Close
+                    </a>
+                </div>
+            </Modal>
+
         </div>
     );
 };

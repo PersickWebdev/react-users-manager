@@ -9,4 +9,17 @@
     @include container();
     overflow: hidden;
   }
+
+  &__buttons {
+    padding: 4px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 24px;
+    background-color: $black;
+  }
+
+  &__button {
+    @include link('primary');
+  }
 }
