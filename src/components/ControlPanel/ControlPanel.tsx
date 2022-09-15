@@ -79,10 +79,13 @@ const ControlPanel: FC<IControlPanel> = ({ isFilterActive, setFilterOptions, isA
                 setFilterOptions={setFilterOptions}
                 isFilterActive={isFilterActive}
             />
-            <div className={styles['control-panel__icon-box']}>
+            <div
+                className={styles['control-panel__icon-box']}
+                onClick={refreshHandler}
+            >
                 {Icons.refresh({
                     className: `${styles['control-panel__icon-refresh']}`
-                    }, refreshHandler)
+                    })
                 }
             </div>
         </div>
