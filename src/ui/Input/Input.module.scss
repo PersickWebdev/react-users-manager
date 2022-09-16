@@ -3,7 +3,35 @@
 @import '../../scss/mixins';
 
 .input {
-  &__element {
 
+  &__label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__label-text {
+
+  }
+
+  &__element {
+    max-width: 200px;
+    width: 100%;
+    padding: 4px;
+    outline: none;
+    border: 1px solid $black;
+    transition: $transition;
+  }
+
+  &__element:focus {
+    background-color: $black;
+  }
+
+  &__element:focus {
+    color: $white;
+  }
+
+  &__error {
+    @include text(11px, 400, 100%, none, none, $red);
   }
 }

@@ -1,14 +1,19 @@
 import React from 'react';
 import styles from './Form.module.scss';
 import { Input } from '../../ui';
+import { IUser } from '../../types';
 
 interface IForm {
+    currentUser?: IUser;
     heading: string;
     subheadings?: string[];
     description?: string;
+    setFormData: (state: any) => void;
+    formErrors: any;
+    setFormErrors: (state: any) => void;
 }
 
-const Form = ({ heading, description, subheadings }: IForm) => {
+const Form = ({ currentUser, heading, description, subheadings, setFormData, formErrors, setFormErrors }: IForm) => {
     return (
         <form className={styles['form']}>
             <div className={styles['form__header']}>
@@ -33,9 +38,13 @@ const Form = ({ heading, description, subheadings }: IForm) => {
                     <div className={styles['form__section']}>
                         <Input
                             id="input-first-name"
-                            name="firstName"
+                            name="name"
+                            value={currentUser ? currentUser.personal.name : ''}
                             placeholder="First name ..."
                             label="First name:"
+                            error={formErrors.name}
+                            setFormData={setFormData}
+                            setFormErrors={setFormErrors}
                         />
                     </div>
                 </div>
@@ -46,7 +55,6 @@ const Form = ({ heading, description, subheadings }: IForm) => {
                             {subheadings[1]}
                         </h6>
                     }
-
                 </div>
             </div>
             <div className={styles['form__actions']}>

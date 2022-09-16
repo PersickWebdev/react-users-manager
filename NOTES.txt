@@ -1,0 +1,11 @@
+TODO:
+    COMPONENTS:
+    01. 'Input':
+        - connect state;
+        - add the removing error condition.
+    02. Integrate 'Select' into 'Form'.
+    03. Create 'Number' ui component.
+    ANIMATION:
+    01. Remove 'react-transition-group'.
+    02. Add 'framer-motion' for animation instead of 'react-transition-group'.
+    03. Animate the appearance of pages and components.

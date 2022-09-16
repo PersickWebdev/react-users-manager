@@ -14,6 +14,33 @@ const Profile = ({ userId, setIsModalVisible }: IProfile) => {
     const { manageUserRequest } = useRequests();
     const [ currentUser, setCurrentUser ] = useState({} as IUser);
     const [ isEditMode, setIsEditMode ] = useState<boolean>(false);
+    const [ formData, setFormData ] = useState({
+        id: '',
+        status: '',
+        name: '',
+        lastName: '',
+        age: '',
+        gender: '',
+        phone: '',
+        companyName: '',
+        country: '',
+        industry: '',
+        rating: '',
+        email: '',
+    });
+    const [ formErrors, setFormErrors ] = useState({
+        status: '',
+        name: '',
+        lastName: '',
+        age: '',
+        gender: '',
+        phone: '',
+        companyName: '',
+        country: '',
+        industry: '',
+        rating: '',
+        email: '',
+    });
 
     const editHandler = () => {
         setIsModalVisible(false);
@@ -40,9 +67,13 @@ const Profile = ({ userId, setIsModalVisible }: IProfile) => {
         {isEditMode
             ?
             <Form
+                currentUser={currentUser}
                 heading="Edit user"
                 subheadings={['Personal information:', 'Company information:']}
                 description="Testing description"
+                setFormData={setFormData}
+                formErrors={formErrors}
+                setFormErrors={setFormErrors}
             />
             :
             <div className={styles['profile']}>
